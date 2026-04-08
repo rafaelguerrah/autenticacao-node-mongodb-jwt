@@ -100,8 +100,10 @@ autenticacao-node-mongodb-jwt/
   - Body: `{ "email": "email@example.com", "password": "senha" }`
 
 ### Usuários
-- `GET /users/:id`: Obter dados de um usuário (requer token)
-- `GET /users/me`: Obter dados do usuário logado (requer token)
+- `GET /user/:id`: Obter dados de um usuário (requer token)
+- `GET /user/me`: Obter dados do usuário logado (requer token)
+- `PATCH /user/:id`: Atualizar dados de um usuário (requer token)
+- `DELETE /user/:id`: Deletar um usuário (requer token)
 
 ## Frontend
 

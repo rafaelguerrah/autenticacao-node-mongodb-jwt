@@ -17,7 +17,7 @@ conectDB();
 const userRoutes = require('./routes/userRoutes');
 const authRoutes = require('./routes/authRoutes');
 
-app.use('/users', userRoutes);
+app.use('/user', userRoutes);
 app.use('/auth', authRoutes);
 
 app.get('/', (req, res) => {

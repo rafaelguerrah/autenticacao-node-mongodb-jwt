@@ -5,5 +5,7 @@ const checkToken = require('../middlewares/authMiddleware');
 
 router.get('/me', checkToken, userController.getCurrentUser);
 router.get('/:id', checkToken, userController.getUser);
+router.patch('/:id', checkToken, userController.updateUser);
+router.delete('/:id', checkToken, userController.deleteUser);
 
-module.exports = router;
+module.exports = router
