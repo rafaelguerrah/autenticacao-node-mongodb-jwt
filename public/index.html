@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Autenticação</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <main class="container">
+    <!-- Tela de Login -->
+    <div id="loginCard" class="card">
+      <div class="brand">
+        <h1>Minha Conta</h1>
+        <p>Faça login para acessar sua área privada</p>
+      </div>
+
+      <form id="loginForm" class="form">
+        <div class="field">
+          <label for="email">E-mail</label>
+          <input type="email" id="email" name="email" placeholder="seu@exemplo.com" required />
+        </div>
+
+        <div class="field">
+          <label for="password">Senha</label>
+          <input type="password" id="password" name="password" placeholder="••••••••" required />
+        </div>
+
+        <button type="submit" class="btn">Entrar</button>
+
+        <p class="message" id="loginMessage"></p>
+      </form>
+
+      <p class="switch">Não tem conta? <a href="#" id="showRegister">Cadastre-se</a></p>
+    </div>
+
+    <!-- Tela de Cadastro -->
+    <div id="registerCard" class="card" style="display: none;">
+      <div class="brand">
+        <h1>Criar Conta</h1>
+        <p>Registre-se para acessar sua área privada</p>
+      </div>
+
+      <form id="registerForm" class="form">
+        <div class="field">
+          <label for="regName">Nome</label>
+          <input type="text" id="regName" name="name" placeholder="Seu nome" required />
+        </div>
+
+        <div class="field">
+          <label for="regEmail">E-mail</label>
+          <input type="email" id="regEmail" name="email" placeholder="seu@exemplo.com" required />
+        </div>
+
+        <div class="field">
+          <label for="regPassword">Senha</label>
+          <input type="password" id="regPassword" name="password" placeholder="••••••••" required />
+        </div>
+
+        <div class="field">
+          <label for="regConfirmPassword">Confirmar Senha</label>
+          <input type="password" id="regConfirmPassword" name="confirmpassword" placeholder="••••••••" required />
+        </div>
+
+        <button type="submit" class="btn">Cadastrar</button>
+
+        <p class="message" id="registerMessage"></p>
+      </form>
+
+      <p class="switch">Já tem conta? <a href="#" id="showLogin">Faça login</a></p>
+    </div>
+
+    <!-- Tela de Boas Vindas -->
+    <div id="welcomeCard" class="card" style="display: none;">
+      <div class="brand">
+        <h1>Boas Vindas!</h1>
+        <p>Você está logado com sucesso.</p>
+      </div>
+
+      <div id="userInfo" class="user-info">
+        <p><strong>Nome:</strong> <span id="userName"></span></p>
+        <p><strong>E-mail:</strong> <span id="userEmail"></span></p>
+      </div>
+
+      <button id="logoutBtn" class="btn">Sair</button>
+
+      <p class="message" id="welcomeMessage"></p>
+    </div>
+  </main>
+  <script src="script.js"></script>
+</body>
+</html>

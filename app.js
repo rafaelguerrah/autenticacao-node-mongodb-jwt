@@ -1,57 +1,29 @@
-/*imports*/
-require('dotenv').config();
+const dotenv = require('dotenv');
+dotenv.config();
+const path = require('path');
 const express = require('express');
-const mongoose = require('mongoose');
-//const cors = require('cors');
-const bcrypt = require('bcrypt');
-const jwt = require('jsonwebtoken');
+const conectDB = require('./config/db');
+const porta = process.env.PORT || 3001;
 
 const app = express();
-
-//config JSON response
 app.use(express.json());
+app.use(express.urlencoded({ extended: true }));
+app.use(express.static(path.join(__dirname, 'public')));
 
-//models
-const User = require('./models/User');
+//conectando ao banco de dados
+conectDB();
 
-//open Route - public Route
+//rotas
+const userRoutes = require('./routes/userRoutes');
+const authRoutes = require('./routes/authRoutes');
+
+app.use('/users', userRoutes);
+app.use('/auth', authRoutes);
+
 app.get('/', (req, res) => {
-    res.status(200).json({msg: 'Bem Vindo a API'});
+  res.sendFile(path.join(__dirname, 'public', 'index.html'));
 });
 
-//Register user
-app.post('/auth/register', async (req, res) => {
-    const {name, email, password, confirmpassword} = req.body;
-
-    //validations
-    if(!name) {
-        return res.status(422).json({msg: 'O nome é obrigatório'});
-    }
-    if(!email) {
-        return res.status(422).json({msg: 'O email é obrigatório'});
-    }
-    if(!password) {
-        return res.status(422).json({msg: 'A senha é obrigatória'});
-    }
-    if(password !== confirmpassword) {
-        return res.status(422).json({msg: 'As senhas não coincidem'});
-    }
-
-    // Se chegar aqui, o registro continuaria...
-    res.status(201).json({ msg: "Usuário criado com sucesso!" });
+app.listen(porta, () => {
+    console.log(`Servidor rodando na porta ${porta}`);
 });
-
-//config database
-const DB_USER = process.env.DB_USER;
-const DB_PASS = encodeURIComponent(process.env.DB_PASS);
-
-
-mongoose
-.connect(`mongodb+srv://${DB_USER}:${DB_PASS}@cluster0.sbiw1ur.mongodb.net/?appName=Cluster0`)
-.then(() =>{ 
-    app.listen(3000);
-    console.log('Conectado ao MongoDB')})
-.catch((err) => console.log(err));
-
-
-

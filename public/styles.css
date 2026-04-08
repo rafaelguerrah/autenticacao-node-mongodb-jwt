@@ -1,0 +1,154 @@
+:root {
+  --bg: #0f172a;
+  --surface: #111827;
+  --text: #e2e8f0;
+  --text-muted: #94a3b8;
+  --accent: #38bdf8;
+  --accent-dark: #0284c7;
+  --danger: #f87171;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  font-family: Inter, system-ui, sans-serif;
+  background: radial-gradient(circle at top, rgba(56, 189, 248, 0.15), transparent 35%),
+    linear-gradient(180deg, #020617 0%, #0f172a 100%);
+  color: var(--text);
+}
+
+.container {
+  display: grid;
+  place-items: center;
+  min-height: 100vh;
+  padding: 1.5rem;
+}
+
+.card {
+  width: min(420px, 100%);
+  padding: 2rem;
+  border-radius: 24px;
+  background: rgba(15, 23, 42, 0.95);
+  box-shadow: 0 32px 120px rgba(15, 23, 42, 0.35);
+  border: 1px solid rgba(148, 163, 184, 0.12);
+}
+
+.brand h1 {
+  margin: 0 0 0.5rem;
+  font-size: 2rem;
+  letter-spacing: -0.04em;
+}
+
+.brand p {
+  margin: 0;
+  color: var(--text-muted);
+  line-height: 1.6;
+}
+
+.form {
+  margin-top: 1.75rem;
+  display: grid;
+  gap: 1rem;
+}
+
+.field {
+  display: grid;
+  gap: 0.5rem;
+}
+
+label {
+  color: var(--text-muted);
+  font-size: 0.95rem;
+}
+
+input {
+  width: 100%;
+  padding: 0.95rem 1rem;
+  border-radius: 16px;
+  border: 1px solid rgba(148, 163, 184, 0.16);
+  background: rgba(15, 23, 42, 0.9);
+  color: var(--text);
+  font-size: 1rem;
+}
+
+input:focus {
+  outline: none;
+  border-color: var(--accent);
+  box-shadow: 0 0 0 4px rgba(56, 189, 248, 0.12);
+}
+
+.btn {
+  width: 100%;
+  padding: 0.95rem 1rem;
+  border: none;
+  border-radius: 16px;
+  background: linear-gradient(135deg, var(--accent), var(--accent-dark));
+  color: #fff;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: transform 0.2s ease, opacity 0.2s ease;
+}
+
+.btn:hover {
+  transform: translateY(-1px);
+  opacity: 0.95;
+}
+
+.switch {
+  text-align: center;
+  margin-top: 1rem;
+  color: var(--text-muted);
+}
+
+.switch a {
+  color: var(--accent);
+  text-decoration: none;
+}
+
+.switch a:hover {
+  text-decoration: underline;
+}
+
+.message {
+  text-align: center;
+  margin-top: 1rem;
+  font-size: 0.9rem;
+}
+
+.message.error {
+  color: var(--danger);
+}
+
+.user-info {
+  margin-top: 1.75rem;
+  padding: 1rem;
+  background: rgba(15, 23, 42, 0.8);
+  border-radius: 16px;
+  border: 1px solid rgba(148, 163, 184, 0.16);
+}
+
+.user-info p {
+  margin: 0.5rem 0;
+}
+
+.message {
+  margin: 0;
+  min-height: 1.4rem;
+  color: var(--text-muted);
+  font-size: 0.95rem;
+}
+
+.message.error {
+  color: var(--danger);
+}
+
+@media (max-width: 460px) {
+  .card {
+    padding: 1.5rem;
+  }
+}
