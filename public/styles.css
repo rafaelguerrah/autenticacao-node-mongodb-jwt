@@ -85,6 +85,7 @@ input:focus {
   width: 100%;
   padding: 0.95rem 1rem;
   border: none;
+  margin-top: 2px;
   border-radius: 16px;
   background: linear-gradient(135deg, var(--accent), var(--accent-dark));
   color: #fff;
@@ -145,6 +146,23 @@ input:focus {
 
 .message.error {
   color: var(--danger);
+}
+
+.actions {
+  display: flex;
+  gap: 0.75rem;
+  flex-wrap: wrap;
+  margin: 1.5rem 0 0;
+}
+
+.btn.secondary {
+  background: rgba(148, 163, 184, 0.18);
+  color: var(--text);
+}
+
+.btn.danger {
+  background: var(--danger);
+  
 }
 
 @media (max-width: 460px) {

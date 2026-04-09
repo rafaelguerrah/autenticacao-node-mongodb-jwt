@@ -82,9 +82,50 @@
         <p><strong>E-mail:</strong> <span id="userEmail"></span></p>
       </div>
 
-      <button id="logoutBtn" class="btn">Sair</button>
+      <div class="actions">
+        <button id="editBtn" class="btn">Editar perfil</button>
+        <button id="deleteBtn" class="btn danger">Excluir conta</button>
+        <button id="logoutBtn" class="btn secondary">Sair</button>
+      </div>
+
+      
 
       <p class="message" id="welcomeMessage"></p>
+    </div>
+
+    <!-- Tela de Edição -->
+    <div id="editCard" class="card" style="display: none;">
+      <div class="brand">
+        <h1>Editar Perfil</h1>
+        <p>Atualize seus dados ou altere sua senha.</p>
+      </div>
+
+      <form id="editForm" class="form">
+        <div class="field">
+          <label for="editName">Nome</label>
+          <input type="text" id="editName" name="name" placeholder="Seu nome" required />
+        </div>
+
+        <div class="field">
+          <label for="editEmail">E-mail</label>
+          <input type="email" id="editEmail" name="email" placeholder="seu@exemplo.com" required />
+        </div>
+
+        <div class="field">
+          <label for="editPassword">Nova Senha</label>
+          <input type="password" id="editPassword" name="password" placeholder="Deixe em branco para manter" />
+        </div>
+
+        <div class="field">
+          <label for="editConfirmPassword">Confirmar Nova Senha</label>
+          <input type="password" id="editConfirmPassword" name="confirmpassword" placeholder="Deixe em branco para manter" />
+        </div>
+
+        <button type="submit" class="btn">Salvar</button>
+        <button id="cancelEditBtn" class="btn secondary" type="button">Cancelar</button>
+
+        <p class="message" id="editMessage"></p>
+      </form>
     </div>
   </main>
   <script src="script.js"></script>
